@@ -1,0 +1,36 @@
+<htnl>
+	<body>
+		<input type="text" id="typed_word"/>
+		<input type="button" value="Check" onclick="check_word()"/>
+		<br/>
+		<script>
+			word = ['about','above','acrose','act','active','activity']
+			r = Math.floor(Math.random() * (word.length));
+			original_word = word[r];
+			shuffle_word = shuffle_string(original_word);
+			
+			document.write(shuffle_word)
+
+			function check_word(){
+				typed_word = document.getElementById("typed_word").value;
+				if(original_word == typed_word){
+					alert("Correct")
+				}else{
+					alert("Incorrect")
+				}
+			}
+			function shuffle_string(w){
+				a = w.split("");
+				n = a.length;
+				for(var i = n-1; i>0; i--){
+					 j = Math.floor(Math.random() * (i+1));
+
+					 tmp = a[i];
+					a[i] = a[j];
+					a[j] = tmp;
+				}
+				return a.join("");
+			}
+		</script>
+	</body>
+</htnl>
